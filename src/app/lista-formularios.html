@@ -1,20 +1,28 @@
-<h1>Lista de Formulários</h1>
-<table border="1">
-  <thead>
-    <tr>
-      <th>Nome da Pessoa</th>
-      <th>UF Empreendimento</th>
-      <th>Município</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let f of formularios()">
-      <td>{{ f.pessoa?.nome }}</td>
-      <td>{{ f.ufEmpreendimento }}</td>
-      <td>{{ f.municipioEmpreendimento }}</td>
-      <td>
-        <a [routerLink]="['/detalhes', f.id]">🔍 Ver detalhes</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container mt-4">
+  <h1 class="mb-4">Lista de Formulários</h1>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-center">Nome da Pessoa</th>
+          <th class="text-center">UF Empreendimento</th>
+          <th class="text-center">Município</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of formularios()">
+          <td>{{ f.pessoa?.nome }}</td>
+          <td>{{ f.ufEmpreendimento }}</td>
+          <td>{{ f.municipioEmpreendimento }}</td>
+          <td class="text-center">
+            <a [routerLink]="['/detalhes', f.id]" class="btn btn-sm btn-primary">
+              Ver detalhes
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

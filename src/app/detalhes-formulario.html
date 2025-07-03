@@ -1,0 +1,260 @@
+<div class="container my-4" *ngIf="formulario; else loading">
+  <h2 class="mb-4">Detalhes do Formulário</h2>
+
+  <div class="accordion" id="formularioAccordion">
+
+    <!-- Pessoa -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingPessoa">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePessoa" aria-expanded="true">
+          Informações da Pessoa
+        </button>
+      </h2>
+      <div id="collapsePessoa" class="accordion-collapse collapse show" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-md-6" *ngFor="let campo of [
+              { label: 'Nome', valor: formulario.pessoa?.nome },
+              { label: 'CPF', valor: formulario.pessoa?.cpf },
+              { label: 'Telefone', valor: formulario.pessoa?.telefone },
+              { label: 'Email', valor: formulario.pessoa?.email },
+              { label: 'Endereço', valor: formulario.pessoa?.endereco },
+              { label: 'UF', valor: formulario.pessoa?.uf },
+              { label: 'Município', valor: formulario.pessoa?.municipio },
+              { label: 'RGP', valor: formulario.pessoa?.rgp },
+              { label: 'Razão Social', valor: formulario.pessoa?.razaoSocial },
+              { label: 'CNPJ', valor: formulario.pessoa?.cnpj },
+              { label: 'CNAE', valor: formulario.pessoa?.cnae },
+              { label: 'Responsável Legal', valor: formulario.pessoa?.responsavelLegal },
+              { label: 'CPF do Responsável Legal', valor: formulario.pessoa?.cpfResponsavelLegal },
+              { label: 'RGP do Responsável Legal', valor: formulario.pessoa?.rgpResponsavelLegal },
+              { label: 'Telefone do Responsável Legal', valor: formulario.pessoa?.telefoneResponsavelLegal },
+              { label: 'Email do Responsável Legal', valor: formulario.pessoa?.emailResponsavelLegal }
+            ]">
+              <p><strong>{{ campo.label }}:</strong> {{ campo.valor }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empreendimento -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingEmpreendimento">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmpreendimento">
+          Empreendimento
+        </button>
+      </h2>
+      <div id="collapseEmpreendimento" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+          <p><strong>Endereço:</strong> {{ formulario.enderecoEmpreendimento }}</p>
+          <p><strong>UF:</strong> {{ formulario.ufEmpreendimento }}</p>
+          <p><strong>Município:</strong> {{ formulario.municipioEmpreendimento }}</p>
+          <p><strong>Latitude:</strong> {{ formulario.latitude }}</p>
+          <p><strong>Longitude:</strong> {{ formulario.longitude }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Informações do Empreedimento -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingInfo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInfo">
+          Informações do Empreendimento
+        </button>
+      </h2>
+      <div id="collapseInfo" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-md-6" *ngFor="let campo of [
+              { label: 'Possui Responsável Técnico:', valor: formulario.hasResponsavelTecnico ? 'Sim' : 'Não' },
+              { label: 'Responsável Técnico:', valor: formulario.nomeResponsavelTecnico },
+              { label: 'Registro do Responsável Técnico:', valor: formulario.registroResponsavelTecnico },
+              { label: 'Telefone do Responsável Técnico:', valor: formulario.telefoneResponsavelTecnico },
+              { label: 'Email do Responsável Técnico:', valor: formulario.emailResponsavelTecnico },
+              { label: '', valor: '' },
+              { label: 'Possui DAP:', valor: formulario.hadDap ? 'Sim' : 'Não' },
+              { label: 'DAP:', valor: formulario.dap },
+              { label: 'Possui Licença Ambiental:', valor: formulario.hasLicencaAmbiental ? 'Sim' : 'Não' },
+              { label: 'Licença Ambiental:', valor: formulario.licencaAmbiental },
+              { label: 'Possui Outorga de uso de Agua:', valor: formulario.hasOutorga ? 'Sim' : 'Não' },
+              { label: 'Outorga:', valor: formulario.outorga },
+              { label: 'Possui CTF:', valor: formulario.hasCtf ? 'Sim' : 'Não' },
+              { label: 'CTF:', valor: formulario.ctf },
+              { label: 'Possui CAR:', valor: formulario.hasCar ? 'Sim' : 'Não' },
+              { label: 'CAR:', valor: formulario.car },
+              { label: 'Possui OESA:', valor: formulario.hasOesa ? 'Sim' : 'Não' },
+              { label: 'OESA:', valor: formulario.oesa },
+              { label: 'Assistência Técnica:', valor: formulario.hasAssistenciaTecnica ? 'Sim' : 'Não' },
+              { label: 'Atendimentos por Ano:', valor: formulario.atendimentosAno },
+              { label: 'Viveiro:', valor: formulario.hasViveiro ? 'Sim' : 'Não' },
+              { label: 'Área do Viveiro:', valor: formulario.areaViveiro },
+              { label: 'Tanque Rede:', valor: formulario.hasTanqueRede ? 'Sim' : 'Não' },
+              { label: 'Área do Tanque Rede:', valor: formulario.areaTanqueRede },
+              { label: 'Sistema Fechado:', valor: formulario.hasSistemaFechado ? 'Sim' : 'Não' },
+              { label: 'Tipo de Sistema Fechado:', valor: formulario.tipoSistemaFechado },
+              { label: 'Área do Sistema Fechado:', valor: formulario.areaSistemaFechado },
+              { label: '', valor: '' },
+              { label: 'Raceway:', valor: formulario.hasRaceway ? 'Sim' : 'Não' },
+              { label: 'Área do Raceway:', valor: formulario.areaRaceway }
+            ]">
+              <p><strong>{{ campo.label }}</strong> {{ campo.valor }}</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produções -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingProducoes">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProducoes">
+          Produções
+        </button>
+      </h2>
+      <div id="collapseProducoes" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+          <div *ngFor="let p of formulario.producoes" class="card mb-2">
+            <div class="card-body">
+              <p><strong>Espécie:</strong> {{ p.especie }}</p>
+              <p><strong>Produção (Kg):</strong> {{ p.producaoKg }}</p>
+              <p><strong>Unidades:</strong> {{ p.unidades }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formas Jovens -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFormasJovens">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormasJovens">
+          Formas Jovens
+        </button>
+      </h2>
+      <div id="collapseFormasJovens" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+          <p><strong>Área de Formas Jovens:</strong> {{ formulario.areaFormaJovem }}</p>
+          <div *ngFor="let forma of formulario.formasJovem" class="card mb-2">
+            <div class="card-body">
+              <p><strong>Espécie:</strong> {{ forma.especie }}</p>
+              <p><strong>Milheiros:</strong> {{ forma.milheiros }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Produções Ornamental -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOrnamental">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrnamental">
+        Produções Ornamental
+        </button>
+    </h2>
+    <div id="collapseOrnamental" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+        <div *ngFor="let producao of formulario.producoesOrnamental" class="card mb-2">
+            <div class="card-body">
+            <p><strong>Espécie:</strong> {{ producao.especie }}</p>
+            <p><strong>Produção (KG):</strong> {{ producao.producaoKg }}</p>
+            <p><strong>Unidades:</strong> {{ producao.unidades }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+        <!-- Aquisições de Formas Jovens -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingAquisicoesFormas">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAquisicoesFormas">
+        Aquisições de Formas Jovens
+        </button>
+    </h2>
+    <div id="collapseAquisicoesFormas" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+        <div *ngFor="let aquisicao of formulario.aquisicoesFormaJovem" class="card mb-2">
+            <div class="card-body">
+            <p><strong>Espécie:</strong> {{ aquisicao.especie }}</p>
+            <p><strong>UF de Origem:</strong> {{ aquisicao.ufOrigem }}</p>
+            <p><strong>Milheiros:</strong> {{ aquisicao.milheiros }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Aquisições de Ração -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingRacao">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRacao">
+        Aquisições de Ração
+        </button>
+    </h2>
+    <div id="collapseRacao" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+        <div *ngFor="let racao of formulario.aquisicoesRacao" class="card mb-2">
+            <div class="card-body">
+            <p><strong>UF de Origem:</strong> {{ racao.ufOrigem }}</p>
+            <p><strong>Unidade:</strong> {{ racao.unidade }}</p>
+            <p><strong>Quantidade (KG):</strong> {{ racao.quantidade }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Comercialização de Espécies -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingComercializacao">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComercializacao">
+        Comercialização de Espécies
+        </button>
+    </h2>
+    <div id="collapseComercializacao" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+        <div *ngFor="let c of formulario.comercializacaoEspecie" class="card mb-2">
+            <div class="card-body">
+            <p><strong>UF de Origem:</strong> {{ c.ufOrigem }}</p>
+            <p><strong>Especie:</strong> {{ c.especie }}</p>
+            <p><strong>Producao (Kg):</strong> {{ c.producaoKg }}</p>
+            <p><strong>Quantidade:</strong> {{ c.quantidade }}</p>
+            <p><strong>Preço Médio:</strong> {{ c.precoMedio }} R$</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Produções Ornamentais -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOrnamentais">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrnamentais">
+        Produções Ornamentais
+        </button>
+    </h2>
+    <div id="collapseOrnamentais" class="accordion-collapse collapse" data-bs-parent="#formularioAccordion">
+        <div class="accordion-body">
+        <div *ngFor="let p of formulario.producoesOrnamentais" class="card mb-2">
+            <div class="card-body">
+            <p><strong>UF de Origem:</strong> {{ p.ufOrigem }}</p>
+            <p><strong>Unidades:</strong> {{ p.unidades }}</p>
+            <p><strong>Quantidade:</strong> {{ p.quantidade }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="container text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+    <p class="mt-3">Carregando detalhes...</p>
+  </div>
+</ng-template>
